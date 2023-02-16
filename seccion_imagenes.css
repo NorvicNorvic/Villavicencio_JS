@@ -1,7 +1,6 @@
 #imagenes .contenedor{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /*para que los elementos que no quepan se bajen*/
     /* height: 25em; */
 }
 

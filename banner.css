@@ -61,29 +61,6 @@
 }
 
 
-/* #banner{
-     margin-top:15vh; 
-    position: relative;
-    background: yellow;
-    height: 10vh;
-    display: flex;
-    border-top:1px solid black;
-    border-bottom:1px solid black;
-    align-items: center;
-    justify-content: center;
-}
-
-#banner .banner{
-    height: 5vh;
-    width:30vw ;
-    display: inline-block;
-    text-align: center;
-}
-
-h1{
-    text-transform: uppercase;
-    background: 0 0;
-} }  */
 
 @media(min-width:480px){
     #banner h1{
