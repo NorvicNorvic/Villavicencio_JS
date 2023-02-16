@@ -1,160 +1,171 @@
-@font-face{
+@import url(menu.css);
+@import url(banner.css);
+@import url(seccion_cbox.css);
+@import url(seccion_imagenes.css);
+@import url(footer.css);
+@font-face {
     font-family: julee;
-    src:url(fuentes/Julee-Regular.ttf);
+    src: url(fuentes/Julee-Regular.ttf);
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	font-family: Comic Sans MS, Arial, Verdana;
-	box-sizing: border-box;
-    background: rgb(233, 212, 228);
-
+    margin: 0 auto;
+    padding: 0;
+    font-family: julee;
+    box-sizing: border-box;/*cuando se le da border o padding no se salga del modelo de caja*/
+    /* background: rgb(233, 212, 228); */
 }
-
 
 body {
-	border: 10px;
-	background-color: rgb(233, 243, 247);
-    background: rgb(233, 212, 228);
-
+    margin: 0 auto;
+    font-family: julee;
 }
 
-header{
-    background: rgb(233, 212, 228);
+main{
+    height: 100%;
     width: 100%;
-    height: 8em;
 }
 
-.ancho{
-    width:100%;
-    height: 8em;
-    margin: auto;
-}
-
-.logo{
-    width: 25%;
-    height: 8em;
-    float: left;
-    position: relative;
-}
-
-.loEmpresa{
-    width: 90%;
-    height: 5em;
-    position: absolute;
+header {
+    width: 100%;
+    height: 4em;
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+    background: black;
+    position:fixed;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
+    z-index: 100;
+}
+
+.contenedor {
+    width: 98%;
     margin: auto;
-    font-family: julee;
-
 }
 
-nav{
-    width: 70%;
-    height: 4em;
-    float: left;
-	display:flex;
-    position: relative;
-    left:2em;
-    top:3em;
-    margin: auto;
-	
+/* section {
+    width: 100%;
+    height: 12vh;
+    margin-bottom: 25px;
+} */
+
+
+footer {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 8em;
+    width: 100%;
+    background: black;
+    padding: 6px;
 }
 
-@keyframes maquina{
-    from{
-        width: 0;
+
+/* @media (min-width:1024px) {
+.contenedor{
+    width: 1020px;
+}
+
+} */
+
+@media (max-width:600px) {
+
+    header label {
+        display: block;
     }
-    to{
-        width: 100%;
-    }
- }
- 
- @keyframes text {
-    0%{
-    filter: hue-rotate(0deg);
-    }
-    100%{
-        filter: hue-rotate(360deg);
-        }
- }  
 
 
-.nav-enlace{
-    font-family: julee;
-    text-transform: uppercase;
-    top:4vw;
-    font-size: 17px; 
-    font-weight: bold;
-    text-align: center;
-    animation:text 10s linear infinite, maquina 5s steps(51) 5ms  normal both, blinkTextCursor 5s  infinite;
-    background: linear-gradient(rgb(206, 179, 174),greenyellow);
-	/* background: rgb(51 110 199 / 92%); */
-	color: black;
-	text-decoration: none;
-	margin: 4px;
-	box-shadow: 4px 4px rgb(80, 7, 49);
-	margin-bottom: 1em;
-    border: 1px solid greenyellow;
-    display: block;
-    padding-top: 13px;
-}
-
-.nav-enlace:hover{
-	background: green;
-	box-shadow: 0px;
-
-}
-
-
-.nav-button{
-	color: black;
-    text-transform: uppercase;
-    font-family: julee;
-	animation:text 10s linear infinite, maquina 5s steps(51) 5ms  normal both, blinkTextCursor 5s  infinite;
-    background: linear-gradient(rgb(206, 179, 174),greenyellow);
-	display:none;
-	padding: 5px;
-	font-size: 1em;
-	font-weight: bold;
-    box-shadow: 4px 4px rgb(80, 7, 49);
-
-}
-
-/* Cuando el máximo sea 600, tomará nuevas propiedades */
-@media (max-width:600px){
-   
-	nav{
-		flex-direction: column;
-        width: 92%;
+    .logo {
         position: relative;
-        left:5px;
-        top:-40px;
-        
-	}
-
-    .logo{
-        position: relative;
-        left: 8em;
-        top:-20px;
+        left: 7em;
+        bottom: 6px;
         width: 40%;
-        
     }
 
-	.nav-enlace{
-		margin:10px 0;
-		width: 100%;
-	}
 
-	.nav-button{
-		display: inline-block;
-        
-	}
+    .loEmpresa {
+        width: 90%;
+        height: 2em;
+        margin-top: 8px;
+    }
 
-	.desaparece{
-		display: none;
-	}
+    footer .contenedor{
+        align-items: center;
+        text-align: center;
+    }
+
+    .icon{
+        margin:5px;
+    }
+    footer h2{
+        margin-top: 0;
+        margin-right: 6em;
+    }
+}
+
+
+/* formulario */
+.row{
+    color:black;
+    font-size: 3em;
+    margin-top: 6em;
+    gap: 5px;
+    background-image: url(Assets/fondo1_form.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.boton{
+    float:right;
+    margin-bottom: 2em;
+    margin-top: 10px;
+    padding:3px 15px;
+    background:linear-gradient(rgb(206, 179, 174),greenyellow);
+    font-size: 30px;
+    box-shadow: 8px  8px ;
+}
+
+/* tabla */
+h1 {
+	text-align: center;
+	margin-top: 1em;
+}
+
+h4 {
+	text-align:left;
+}
+
+.normal {
+	width: 90%;
+	margin-top: 15px;
+    margin-bottom: 15px;
+	border: 3px solid #000;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+}
+
+table td {
+	width: 25%;
+	height: 2em;
+	padding: 10px;
+    border:1px solid #000 ;
+    background: rgb(236, 204, 215);
+
+}
+
+#titulos {
+    width: 25%;
+	height: 2em;
+	border: 1px solid #000;
+}
+
+table th {
+    width: 25%;
+	height: 2em;
+	border: 1px solid #000;
+}
+
+table tr {
+    background: rgb(238, 234, 241);
 }

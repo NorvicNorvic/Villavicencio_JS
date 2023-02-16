@@ -1,0 +1,30 @@
+#seccion2{
+    display:flex;
+}
+
+ #checkbox {
+    color: black;
+    margin-top: 1em;
+    height: 3em;
+    width: 35em;
+    margin-left: 15px;
+    display: inline;
+
+}
+
+.form-inline {
+    width: 35vw;
+    float: right;
+    display: inline;
+    margin-top: 0;
+} 
+
+.btn btn-outline-success my-2 my-sm-0{
+    width: 20px;
+    background: blue;
+}
+
+#lupa{
+    width: 20px;
+    height: 20px;
+}
