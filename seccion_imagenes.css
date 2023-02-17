@@ -1,41 +1,41 @@
-#imagenes .contenedor{
+#imagenes .contenedor {
     display: flex;
     justify-content: center;
-    /* height: 25em; */
-}
-
-#imagenes article{
-margin: 15px;
-border: 1px solid black;
-padding: 5px;
-height: auto;
-}
-
-#imagenes img{
+    margin-bottom: 20px;
     width: 100%;
-    height: 50%;
-    /* max-width: 280px; */
 }
 
-#imagenes h4{
+#imagenes article {
+    margin: 3px;
+    border: 1px solid black;
+    padding: 5px;
+    /* height: auto; */
+}
+
+#imagenes img {
+    width: 100%;
+    height: 30%;
+}
+
+#imagenes h4 {
     text-align: center;
 }
 
 .parrafo {
-position: relative;
-height: auto;
-text-align: justify;
+    position: relative;
+    height: auto;
+    text-align: justify;
 }
 
-.bootonCard{
+.bootonCard {
     display: flex;
 }
 
-#form{
+#form {
     display: inline;
 }
 
-button{
+button {
     box-shadow: 0 2px 2px;
     background: rgb(176, 235, 230);
 }

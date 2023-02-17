@@ -27,6 +27,7 @@ body {
 main {
     height: 100%;
     width: 100%;
+
 }
 
 header {
@@ -64,14 +65,7 @@ footer {
 }
 
 
-/* @media (min-width:1024px) {
-.contenedor{
-    width: 1020px;
-}
-
-} */
-
-@media (max-width:600px) {
+@media (max-width:760px) {
 
     header label {
         display: block;
@@ -111,6 +105,11 @@ footer {
         /* para que los elementos que no quepan se bajen*/
     }
 
+    #imagenes article {
+        width: 100%;
+        min-height: 26em;
+    }
+
     #seccion2 {
         display: flex;
     }
@@ -119,6 +118,10 @@ footer {
         align-content: center;
         display: flex;
         display: block;
+    }
+
+    .navbar-toggler {
+        color: white !;
     }
 }
 
