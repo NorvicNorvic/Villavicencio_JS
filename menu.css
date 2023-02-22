@@ -1,13 +1,13 @@
-#menu-nav{
-    display:none;
+#menu-nav {
+    display: none;
 }
 
-.logo{
+.logo {
     width: 25%;
     float: left;
 }
 
-.loEmpresa{
+.loEmpresa {
     width: 90%;
     height: 3em;
     position: relative;
@@ -18,8 +18,8 @@
     /* margin: auto; */
 }
 
-header label{
-    float:right;
+header label {
+    float: right;
     font-size: 28px;
     margin: 25px 0;
     cursor: pointer;
@@ -27,42 +27,46 @@ header label{
     mix-blend-mode: multiply;para quitarle el fondo blanco a la imagen */
 }
 
-.icon-menu{
-    width:40px;
-    height:16px;
-    margin-top: 2px;
+.icon-menu img {
+    width: 40px;
+    height: 40px;
+    margin-top: -40px;
+    margin-right: 20px;
+
 }
 
-.menu{
+.menu {
     position: absolute;
-    top:50px;
-    left:0;
-    width: 70%;
+    top: 50px;
+    left: 0;
+    width: 100%;
     height: 100vh;
     transition: all 0.5s;
     transform: translateX(-100%);
     background: black;
 }
 
-@keyframes maquina{
-    from{
+@keyframes maquina {
+    from {
         width: 0;
     }
-    to{
+
+    to {
         width: 100%;
     }
- }
+}
 
- @keyframes text {
-    0%{
-    filter: hue-rotate(0deg);
+@keyframes text {
+    0% {
+        filter: hue-rotate(0deg);
     }
-    100%{
-        filter: hue-rotate(360deg);
-        }
- }
 
-.menu a{
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.menu a {
     height: 40px;
     /* border-bottom: 1px solid rgb(255, 255, 255);  */
     font-family: julee;
@@ -70,33 +74,32 @@ header label{
     font-size: 17px;
     font-weight: bold;
     text-align: center;
-    animation:text 10s linear infinite, maquina 5s steps(51) 5ms  normal both, blinkTextCursor 5s  infinite;
-    background: linear-gradient(rgb(206, 179, 174),greenyellow);
-	color: black;
-	text-decoration: none;
-	margin-top: 5px;
+    animation: text 10s linear infinite, maquina 5s steps(51) 5ms normal both, blinkTextCursor 5s infinite;
+    background: linear-gradient(rgb(206, 179, 174), greenyellow);
+    color: black;
+    text-decoration: none;
+    margin-top: 5px;
     margin-left: 2px;
-	/* box-shadow: 4px 4px rgb(80, 7, 49); */
+    /* box-shadow: 4px 4px rgb(80, 7, 49); */
     border: 1px solid greenyellow;
     display: block;
     padding: 8px;
 }
 
-.menu a:hover{
+.menu a:hover {
     background: green;
-	box-shadow: 0px;
 }
 
-#menu-nav:checked ~ .menu{
+#menu-nav:checked~.menu {
     transform: translateX(0%);
 }
 
 
-@media(min-width:1024px){
+@media(min-width:1000px) {
 
-    .menu{
+    .menu {
         position: static;
-        width: 50em;
+        width: 70%;
         height: auto;
         transform: translateX(0%);
         float: right;
@@ -104,13 +107,13 @@ header label{
         padding-top: 6px;
     }
 
-    .menu a{
-        border:none;
+    .menu a {
+        border: none;
     }
 
-header label{
-    display: none;
-}
+    header label {
+        display: none;
+    }
 
 
 }

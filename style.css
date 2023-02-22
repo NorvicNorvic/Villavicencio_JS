@@ -35,7 +35,6 @@ header {
     height: 4em;
     color: white;
     text-transform: uppercase;
-    border-bottom: 1px solid black;
     background: black;
     position: fixed;
     top: 0;
@@ -56,12 +55,8 @@ header {
 
 
 footer {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    height: 8em;
     width: 100%;
     background: black;
-    padding: 6px;
 }
 
 
@@ -71,12 +66,10 @@ footer {
         display: block;
     }
 
-
     .logo {
         position: relative;
-        left: 7em;
+        left: 1em;
         bottom: 6px;
-        width: 40%;
     }
 
 
@@ -97,7 +90,7 @@ footer {
 
     footer h2 {
         margin-top: 0;
-        margin-right: 6em;
+        margin-right: 40%;
     }
 
     #imagenes .contenedor {
@@ -121,7 +114,7 @@ footer {
     }
 
     .navbar-toggler {
-        color: white !;
+        color: white;
     }
 }
 
@@ -129,8 +122,7 @@ footer {
 /* formulario */
 .row {
     color: black;
-    font-size: 3em;
-    margin-top: 6em;
+    font-size: 5vh;
     gap: 5px;
     background-image: url(Assets/fondo1_form.png);
     background-repeat: no-repeat;

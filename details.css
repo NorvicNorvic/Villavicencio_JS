@@ -1,7 +1,7 @@
 #details {
     display: flex;
     position: relative;
-    top: 100px;
+    top:20px;
     flex-wrap: wrap;
     margin-bottom: 100px;
 }
