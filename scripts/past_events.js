@@ -1,16 +1,8 @@
-// const numeros = [1, 2, 3, 4, 5];
-// const currentDate=fechaBase.currentDate;
-// const resultado = numeros.filter(numero => numero % 2 === 0); 
+const numeros = [1, 2, 3, 4, 5];
 
-// console.log('Resultado', resultado);
-const 
-const anioPasado = data.events.filter(evento => ) 
+const resultado = numeros.filter(numero => numero % 2 === 0); 
 
-
-
-
-
-
+console.log('Resultado', resultado);
   // let fechaBase= data.currentDate
 
   // function pastEvent(dateBase, date){
