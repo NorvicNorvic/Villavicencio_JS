@@ -515,53 +515,97 @@ svg circle {
     stroke-dasharray: 220;
 }
 
-#details {
+/* #details {
     display: flex;
     position: relative;
     top:20px;
     flex-wrap: wrap;
     margin-bottom: 100px;
+} */
+
+#imagenesDetails article {
+    border: 1px solid black; 
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    margin-top: 10px;
 }
 
-#details article {
-    border: 2px solid black;
-    margin: 20px;
-    display: flex;
+#imagenesDetails {
+    /* border-right: 2px solid black; */
+    /* padding: 20px; */
+    width: 90%;
+    height: 20%;
 }
+
 
 .imaDet {
-    border-right: 2px solid black;
-    padding: 20px;
-    width: 30em;
-    height: 10em;
-}
-
-.imaDet img {
     height: 100%;
-    width: 100%;
+    width: 45vw; 
+    padding: 5px
 }
 
-.detalles {
-    margin: 15px;
-    text-align: justify;
+#imagenesDetails p {
+    margin-top: 1em;
+    font-size:20px;
 }
 
-.detalles h4 {
+.divCont{
+    width: 50%;
+    height: 100%;
+    margin-left: 0px;
+}
+
+#imagenesDetails h4 {
+    margin-top: 1em;
     text-align: center;
 }
 
-@media (max-width:600px) {
-    #details article {
-        display:block;
-    }
-
-    .imaDet{
-        padding: 5px;
-        width: 100%;
-    }
-
-    .imaDet img {
-        height: 100%;
-        width: 100%;
-    }
+.detalles {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
 }
+
+
+@media (max-width:760px) {
+    #imagenesDetails  {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+    
+    #imagenesDetails article {
+        margin: 3px;
+        padding: 5px;
+        display: flex;
+        flex-wrap: wrap;
+    } 
+    
+ .imaDet{
+    height: 20vh;
+    width: 100%;
+ }
+
+ .divCont{
+    width: 100%;
+    height: 50%;
+ }
+
+ .detalles{
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+}
+
+#imagenesDetails p {
+    font-size:10px;
+}
+
+#imagenesDetails h4 {
+    margin-top: 1px;
+ }
+}
+  
