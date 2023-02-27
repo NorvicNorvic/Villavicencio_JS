@@ -5,7 +5,7 @@ function fechaEventoPasado(arrayData, date){
     let basisDate=parseInt (fechaBase.split("-"))
     let dateEvent=parseInt(date.split("-"))
  
-    if(dateEvent === basisDate){
+    if(dateEvent >= basisDate){
      return true
      } else
      return false
