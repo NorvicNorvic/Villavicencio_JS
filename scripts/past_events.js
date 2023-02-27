@@ -1,54 +1,58 @@
-const numeros = [1, 2, 3, 4, 5];
 
-const resultado = numeros.filter(numero => numero % 2 === 0); 
+function fechaEventoPasado(arrayData, date){
+  
+   let fechaBase=data.currentDate
+   let basisDate=parseInt (fechaBase.split("-"))
+   let dateEvent=parseInt(date.split("-"))
 
-console.log('Resultado', resultado);
-  // let fechaBase= data.currentDate
+   if(dateEvent < basisDate){
+    return true
+    } else
+    return false
+}
 
-  // function pastEvent(dateBase, date){
-  //   let currentDate=fechaBase.currentDate;
-  //   let anio=parseInt(currentDate.substr(0,4));
-  //   let anioEvent=parseInt(date.substr(0,4));
-  //   if(anioEvent<anio){
-  //     return true;
-  //   } else
-  //   return false;
-  // }
 
-  // const pastEvents=data.events.filter(event=>pastEvent(data, event.date));
-  // let pastCards=document.getElementById('imagenes1');
-  // pastCards.innerHTML=paCards(pastEvents);
+const eventPast = data.events.filter(evento => fechaEventoPasado(data, evento.date))
 
-  // function paCards(fechaBase){
-  // let cards=''
+const contenedorTarjetas = document.getElementById('imagenes')
 
-  // const contenedorImagenes = document.querySelector('#imagenes')//capturo el elemento del documento que se quiere modificar
+contenedorTarjetas.innerHTML=crearTarjetas(eventPast)
 
-  // let imagenes = '' //defino un string vacío
 
-  // for (const evento of data.events) {
-  // imagenes += `<article> <div class="cards" style="width: 18rem;">
+function crearTarjetas(arrayData){
 
-  // <img class="card-img-top" src="${evento.image}" alt="">
-  // <h4>${evento.name}</h4>
-  // <div class="parrafo">
-  //   <p>${evento.description}</p>
-  // </div>
+  let cards = '' //defino un string vacío
 
-  // <div class="bootonCard">
-  // <div class="precio">
-  //   <p>Precio $${evento.price}</p>
-  // </div>
-  // <div id="form">
-  //   <form method="get" action="./details.html">
-  //     <button type="submit">
-  //       Read more...
-  //     </button>
-  //   </form>
-  // </div>
-  // </div>
-  // </article>`
-  // }
+  for (const evento of arrayData) {
+    cards += `<article> <div class="cards" style="width: 18rem;">
 
-  // contenedorImagenes.innerHTML=imagenes
+<img class="card-img-top" src="${evento.image}" alt="">
+<h4>${evento.name}</h4>
+<div class="parrafo">
+  <p>${evento.description}</p>
+</div>
+
+<div class="bootonCard">
+<div class="precio">
+  <p>Precio $${evento.price}</p>
+</div>
+<div id="form">
+  <form method="get" action="./details.html">
+    <button type="submit">
+      Read more...
+    </button>
+  </form>
+</div>
+</div>
+</article>`
+  }
+  return cards
+
+}
+
+
+
+
+
+
 

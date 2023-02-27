@@ -1,12 +1,13 @@
+const contenedorTarjetas = document.getElementById('imagenes')//capturo el elemento del documento que se quiere modificar
 
+contenedorTarjetas.innerHTML=crearTarjetas(data.events)
 
+function crearTarjetas(arrayData) {
 
-const contenedorImagenes = document.querySelector('#imagenes')//capturo el elemento del documento que se quiere modificar
+let cards = '' //defino un string vacío
 
-let imagenes = '' //defino un string vacío
-
-for (const evento of data.events) {
-imagenes += `<article> <div class="cards" style="width: 18rem;">
+for (const evento of arrayData) {
+cards += `<article> <div class="cards" style="width: 18rem;">
 
 <img class="card-img-top" src="${evento.image}" alt="">
 <h4>${evento.name}</h4>
@@ -28,7 +29,6 @@ imagenes += `<article> <div class="cards" style="width: 18rem;">
 </div>
 </article>`
 }
+return cards
 
-
-contenedorImagenes.innerHTML=imagenes
-
+}
