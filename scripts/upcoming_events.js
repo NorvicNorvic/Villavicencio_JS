@@ -51,7 +51,26 @@ function fechaEventoPasado(arrayData, date){
  }
  
  
- 
+ //CATEGORÍAS DINÁMICAS
+var checkboxes = document.getElementById('checkBox')
+
+let even= data.events
+let categoria =  even.map(categ => categ.category)
+
+categoria = categoria.reduce((ant, curr)=> {
+  if(ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1){
+   ant.push(curr)
+  }
+  return ant
+}, [])
+
+
+const checkBox = categoria.map(categoria => `<li class="nav-item"> 
+<input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox1" value="option1">
+<label class="form-check-label" for="inlineCheckbox1">${categoria}</label>
+ </li>`)
+
+ checkboxes.innerHTML=checkBox
  
  
  
