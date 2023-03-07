@@ -1,14 +1,13 @@
-const contenedorTarjetas = document.getElementById('imagenes')//capturo el elemento del documento que se quiere modificar
+const contenedorTarjetas = document.getElementById('imagenes')
 
-
-contenedorTarjetas.innerHTML = crearTarjetas(data.events)
+contenedorTarjetas.innerHTML=crearTarjetas(data.events)
 
 function crearTarjetas(arrayData) {
 
-  let cards = '' //defino un string vacío
+let cards = '' 
 
-  for (const evento of arrayData) {
-    cards += `<article> <div class="cards" style="width: 18rem;">
+for (const evento of arrayData) {
+cards += `<article> <div class="cards" style="width: 18rem;">
 
 <img class="card-img-top" src="${evento.image}" alt="">
 <h4>${evento.name}</h4>
@@ -21,17 +20,20 @@ function crearTarjetas(arrayData) {
   <p>Precio $${evento.price}</p>
 </div>
 <div id="form">
-  <form method="get" action="./details.html?id=${evento.id}">
-    <button type="submit">
+  <form method="get" action="./details.html" >
+    <a id="aDetails" href="./details.html?id=${evento.id}">
       Read more...
-    </button>
+    </a>
   </form>
 </div>
 </div>
 </article>`
-  }
-  return cards
 }
+return cards
+
+}
+
+
 
 //BÚSQUEDA POR INPUT
 

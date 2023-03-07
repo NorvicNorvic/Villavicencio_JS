@@ -37,11 +37,11 @@ function fechaEventoPasado(arrayData, date){
    <p>Precio $${evento.price}</p>
  </div>
  <div id="form">
-   <form method="get" action="./details.html">
-     <button type="submit">
-       Read more...
-     </button>
-   </form>
+ <form method="get" action="./details.html" >
+ <a id="aDetails" href="./details.html?id=${evento.id}">
+   Read more...
+ </a>
+</form>
  </div>
  </div>
  </article>`
