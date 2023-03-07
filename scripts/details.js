@@ -1,31 +1,34 @@
+console.log([document])
 
 
-const contenedorTarjetas = document.getElementById('imagenesDetails')//capturo el elemento del documento que se quiere modificar
+    let params = new URLSearchParams(document.location.search)
 
-contenedorTarjetas.innerHTML=crearTarjetas(data.events)
+    let id = params.get("id")
 
-function crearTarjetas(arrayData) {
+    let detalle = data.events.filter(info => info.id == id)
 
-let cards = '' //defino un string vacío
+    const contenedorTarjetas = document.getElementById('imagenesDetails')
 
-for (const evento of arrayData) {
-cards += `<article> 
-<div class="divCont">
-<img class= "imaDet" src="${evento.image}" alt="">
-</div>
-<div class="detalles">
-  <h4>${evento.name}</h4>
-  <div class="parrafo">
-    <p>${evento.description}</p>
-  </div>
-  <div class="bootonCard">
-  <div class="precio">
-  <p>Precio $${evento.price}</p>
-</div>
-</div>
-
-</article>`
-}
-return cards
-
-}
+    let cards = ""
+    
+    cards +=  `<article> 
+    <div class="divCont">
+    <img class= "imaDet" src="${detalle[0].image}" alt="${detalle[0].name}">
+    </div>
+    <div class="detalles">
+      <h4>${detalle[0].name}</h4>
+      <div class="parrafo">
+        <p>${detalle[0].description}</p>
+      </div>
+      <div class="bootonCard">
+      <div class="precio">
+      <p>Precio $${detalle[0].price}</p>
+    </div>
+    <a id="aDetails" href="./home.html">
+    Return to homepage
+   </a>
+    </div>
+    
+    </article>`
+   
+    contenedorTarjetas.innerHTML = cards

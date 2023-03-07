@@ -52,34 +52,39 @@
 
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="checkBox">
+                    <li class="nav-item"> 
+                        <input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox1" value="option1">
           <label class="form-check-label" for="inlineCheckbox1">Food Fair</label>
                     </li>
                     <li class="nav-item ">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox2" value="option2">
                         <label class="form-check-label" for="inlineCheckbox2">Museum</label>
                     </li>
                     <li class="nav-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                        <input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox3" value="option3">
           <label class="form-check-label" for="inlineCheckbox3">Costume Party</label>
                     </li>
 
                     <li class="nav-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                        <input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox4" value="option4">
           <label class="form-check-label" for="inlineCheckbox4">Music Concert</label>
                     </li>
 
                     <li class="nav-item">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                        <input class="form-check-input" name="checkbox" type="checkbox" id="inlineCheckbox5" value="option5">
           <label class="form-check-label" for="inlineCheckbox5">Race</label>
                     </li>
-                </ul>
+
+                  
+                </ul> 
+
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"><img id="lupa" src="./assets/lupa.png" alt="icono de lupa"></button>
+                    <input id="inputBus" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" id="button" type="submit"><img id="lupa" src="./assets/lupa.png" alt="icono de lupa"></button>
                 </form>
+                <ul id="lista">
+                </ul>
             </div>
         </div>
       </div>
@@ -90,7 +95,8 @@
     <section>
       <div id="imagenes">
       <!-- class="d-flex flex-wrap gap-3 justify-content-center p-3" -->
-
+ <ul id="resultado">
+ </ul>
         <article > <!--
           <img src="./assets/Cinema.jpg" alt="">
           <h4>Cinema</h4>
@@ -212,7 +218,7 @@
   crossorigin="anonymous"></script>
   <script src="../scripts/data.js"></script>
   <script src="../scripts/home.js"></script>
- 
+
 </body>
 
 </html>
