@@ -1,103 +1,126 @@
 
 const contenedorTarjetas = document.getElementById('imagenes')
+const inputBus = document.getElementById('inputBus')
 
-function fechaEventoPasado(arrayData, date){
-  
-  let fechaBase=data.currentDate
-  let basisDate=parseInt (fechaBase.split("-"))
-  let dateEvent=parseInt(date.split("-"))
+let eventos = []
 
-  if(dateEvent >= basisDate){
-   return true
-   } else
-   return false
+
+function traerDatos() {
+  // fetch('./data.json')
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then(response => response.json())
+    .then(datosApi => {
+      eventos = datosApi.events
+
+      crearTarjetas(eventos)
+      let categoria = obtenerCategorias(eventos)
+      filtrarCategorias(categoria)
+      let fechaBase = parseInt((datosApi.currentDate).split("-"))
+      let arrayFiltrado = eventos.filter((evento) => eventoFuturo(evento.date, fechaBase))
+
+      crearTarjetas(arrayFiltrado)
+
+    })
+  // .catch(error => console.log(error.message))
 }
 
-
-const eventUpcom = data.events.filter(evento => fechaEventoPasado(data, evento.date))
-
-contenedorTarjetas.innerHTML=crearTarjetas(eventUpcom)
+traerDatos()
 
 
-function crearTarjetas(arrayData){
 
- let cards = '' //defino un string vacío
+function crearTarjetas(arrayData) {
 
- for (const evento of arrayData) {
-   cards += `<article> <div class="cards" style="width: 18rem;">
+  let cards = ''
+
+  for (const evento of arrayData) {
+    cards += `<article> <div class="cards" style="width: 18rem;">
 
 <img class="card-img-top" src="${evento.image}" alt="">
 <h4>${evento.name}</h4>
 <div class="parrafo">
- <p>${evento.description}</p>
+  <p>${evento.description}</p>
 </div>
 
 <div class="bootonCard">
 <div class="precio">
- <p>Precio $${evento.price}</p>
+  <p>Precio $${evento.price}</p>
 </div>
 <div id="form">
-<form method="get" action="./details.html" >
-<a id="aDetails" href="./details.html?id=${evento.id}">
-  Read more...
-</a>
-</form>
+  <form method="get" action="./details.html" >
+    <a id="aDetails" href="./details.html?id=${evento.id}">
+      Read more...
+    </a>
+  </form>
 </div>
 </div>
 </article>`
- }
- return cards
+  }
+  contenedorTarjetas.innerHTML = cards
+}
+
+function eventoFuturo(event, date) {
+  let dateEvent = parseInt(event.split("-"))
+
+  if (dateEvent >= date) {
+    return true
+  } else
+    return false
+}
+
+
+
+
+
+//BUSQUEDA POR INPUT 
+
+inputBus.addEventListener('input', filtrarEventos)
+
+function filtrarEventos() {
+  let arrayInput = document.querySelectorAll('input:checked')
+  let categoryArray = Array.from(arrayInput).map(categ => categ.value)
+  console.log(categoryArray);
+
+  let arrayFiltrado = eventos.filter((evento) => (evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
+    || evento.description.toLowerCase().includes(inputBus.value.toLowerCase())) && (categoryArray.length === 0 || categoryArray.includes(evento.category)))
+
+  console.log(arrayFiltrado);
+
+  crearTarjetas(arrayFiltrado)
+
+  if (arrayFiltrado.length === 0) {
+    alert("The event does not exist")
+  }
+}
+
+
+//CATEGORiAS DINAMICAS
+function obtenerCategorias(arrayEventos) {
+  let categoria = arrayEventos.map(categ => categ.category)
+  categoria = categoria.reduce((ant, curr) => {
+    if (ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1) {
+      ant.push(curr)
+    }
+    return ant
+  }, [])
+  return categoria
+}
+
+function filtrarCategorias(arrayCat) {
+  checkboxes = ''
+  arrayCat.forEach(categoria => {
+    checkBox.innerHTML += `<li class="nav-item"> 
+     <input class="form-check-input input-check" name="checkbox" type="checkbox"  value="${categoria}" id="${categoria}">
+     <label class="form-check-label" for="${categoria}">${categoria}</label></li>`
+  })
+  checkboxes.innerHTML = checkBox
 
 }
 
-// //BUSQUEDA POR INPUT
-const inputBus = document.getElementById('inputBus')
-
-inputBus.addEventListener('keyup', () => {
-  const eventosFiltrados = data.events.filter((evento) => evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
-    || evento.description.toLowerCase().includes(inputBus.value.toLowerCase()))
-
-  contenedorTarjetas.innerHTML = crearTarjetas(eventosFiltrados)
-
-  if (eventosFiltrados.length === 0) {
-      alert("The event does not exist")
-  }
-})
-
- 
-//CATEGORiAS DINAMICAS
-const checkboxes = document.getElementById('checkBox')
-
-let even = data.events
-let categoria = even.map(categ => categ.category)
-
-categoria = categoria.reduce((ant, curr) => {
-  if (ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1) 
-  {
-    ant.push(curr)
-  }
-  return ant
-}, [])
-
-
-const checkBox = categoria.map(categoria => `<li class="nav-item"> 
-  <input class="form-check-input input-check" name="checkbox" type="checkbox"  value=${categoria}>
-  <label class="form-check-label" for="inlineCheckbox">${categoria}</label></li>`)
-  
-  checkboxes.innerHTML = checkBox
-
 //SELECCION DE CHECKBOX
 
-button.addEventListener('click', (evento) => {
-  evento.preventDefault()
-  const button = document.querySelector("#button")
+button.addEventListener('click', (eventos) => {
+  eventos.preventDefault()
 
-  let arrayInput = document.querySelectorAll('input:checked')
-  
- let categoryArray = Array.from(arrayInput).map(categ => categ.value)
-
-const checkFiltrados = eventUpcom.filter((evento) => evento.category.includes(categoryArray))
-
-contenedorTarjetas.innerHTML = crearTarjetas(checkFiltrados)
-
+  filtrarEventos()
 })
+

@@ -1,6 +1,38 @@
-const contenedorTarjetas = document.getElementById('imagenes')
 
-contenedorTarjetas.innerHTML = crearTarjetas(data.events)
+const contenedorTarjetas = document.getElementById('imagenes')
+const inputBus = document.getElementById('inputBus')
+
+
+let eventos = []
+
+function traerDatos() {
+  // fetch('./data.json')
+  fetch("https://mindhub-xj03.onrender.com/api/amazing")
+    .then(response => response.json())
+    .then(datosApi => {
+      eventos = datosApi.events
+      crearTarjetas(eventos)
+
+      let categoria = obtenerCategorias(eventos)
+      filtrarCategorias(categoria)
+
+        })
+    .catch(error => console.log(error.message))
+}
+
+traerDatos()
+
+function obtenerCategorias(arrayEventos){
+  let categoria = arrayEventos.map(categ => categ.category)
+  console.log(categoria);
+      categoria = categoria.reduce((ant, curr) => {
+        if (ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1) {
+          ant.push(curr)
+        }
+        return ant
+      }, [])
+      return categoria
+}
 
 function crearTarjetas(arrayData) {
 
@@ -29,60 +61,49 @@ function crearTarjetas(arrayData) {
 </div>
 </article>`
   }
-  return cards
+  contenedorTarjetas.innerHTML = cards
+}
 
+//BUSQUEDA POR INPUT 
+
+inputBus.addEventListener('input', filtrarEventos)
+
+function filtrarEventos() {
+  let arrayInput = document.querySelectorAll('input:checked')
+  let categoryArray = Array.from(arrayInput).map(categ => categ.value)
+  console.log(categoryArray);
+
+  let arrayFiltrado = eventos.filter((evento) => (evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
+  || evento.description.toLowerCase().includes(inputBus.value.toLowerCase())) && (categoryArray.length === 0 || categoryArray.includes(evento.category)))
+
+  console.log(arrayFiltrado);
+
+  crearTarjetas(arrayFiltrado)
+
+  if (arrayFiltrado.length === 0) {
+    alert("The event does not exist")
+  }
 }
 
 
-
-// //BUSQUEDA POR INPUT
-const inputBus = document.getElementById('inputBus')
-
-inputBus.addEventListener('keyup', () => {
-  const eventosFiltrados = data.events.filter((evento) => evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
-    || evento.description.toLowerCase().includes(inputBus.value.toLowerCase()))
-
-  contenedorTarjetas.innerHTML = crearTarjetas(eventosFiltrados)
-
-  if (eventosFiltrados.length === 0) {
-      alert("The event does not exist")
-  }
-})
-
- 
 //CATEGORiAS DINAMICAS
-const checkboxes = document.getElementById('checkBox')
-
-let even = data.events
-let categoria = even.map(categ => categ.category)
-
-categoria = categoria.reduce((ant, curr) => {
-  if (ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1) 
-  {
-    ant.push(curr)
-  }
-  return ant
-}, [])
 
 
-const checkBox = categoria.map(categoria => `<li class="nav-item"> 
-  <input class="form-check-input input-check" name="checkbox" type="checkbox"  value=${categoria}>
-  <label class="form-check-label" for="inlineCheckbox">${categoria}</label></li>`)
-  
+function filtrarCategorias(arrayCat) {
+  checkboxes = ''
+  arrayCat.forEach(categoria => {
+    checkBox.innerHTML += `<li class="nav-item"> 
+     <input class="form-check-input input-check" name="checkbox" type="checkbox"  value="${categoria}" id="${categoria}">
+     <label class="form-check-label" for="${categoria}">${categoria}</label></li>`
+  })
   checkboxes.innerHTML = checkBox
+}
 
 //SELECCION DE CHECKBOX
 
-button.addEventListener('click', (evento) => {
-  evento.preventDefault()
-  const button = document.querySelector("#button")
+button.addEventListener('click', (eventos) => {
+  eventos.preventDefault()
 
-  let arrayInput = document.querySelectorAll('input:checked')
-  
- let categoryArray = Array.from(arrayInput).map(categ => categ.value)
+  filtrarEventos()
+ })
 
-const checkFiltrados = data.events.filter((evento) => evento.category.includes(categoryArray))
-
-contenedorTarjetas.innerHTML = crearTarjetas(checkFiltrados)
-
-})

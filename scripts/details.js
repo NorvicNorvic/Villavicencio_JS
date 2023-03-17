@@ -24,7 +24,7 @@ console.log([document])
       <div class="precio">
       <p>Precio $${detalle[0].price}</p>
     </div>
-    <a id="aDetails" href="./home.html">
+    <a id="aDetails" href="./index.html">
     Return to homepage
    </a>
     </div>
