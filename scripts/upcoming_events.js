@@ -12,16 +12,25 @@ function traerDatos() {
     .then(datosApi => {
       eventos = datosApi.events
 
-      crearTarjetas(eventos)
+      // crearTarjetas(eventos)
       let categoria = obtenerCategorias(eventos)
       filtrarCategorias(categoria)
-      let fechaBase = parseInt((datosApi.currentDate).split("-"))
-      let arrayFiltrado = eventos.filter((evento) => eventoFuturo(evento.date, fechaBase))
 
+
+      let fechaBase = datosApi.currentDate
+      let arrayFiltrado = eventos.filter((evento) => eventoFuturo(evento.date, fechaBase))
+      console.log(arrayFiltrado);
       crearTarjetas(arrayFiltrado)
 
+      button.addEventListener('click', (eventos) => {
+        eventos.preventDefault()
+
+      filtrarEventos()
+
+      })
+
     })
-  // .catch(error => console.log(error.message))
+  .catch(error => console.log(error.message))
 }
 
 traerDatos()
@@ -59,8 +68,7 @@ function crearTarjetas(arrayData) {
 }
 
 function eventoFuturo(event, date) {
-  let dateEvent = parseInt(event.split("-"))
-
+  let dateEvent = event
   if (dateEvent >= date) {
     return true
   } else
@@ -71,7 +79,7 @@ function eventoFuturo(event, date) {
 
 
 
-//BUSQUEDA POR INPUT 
+//BUSQUEDA POR INPUT
 
 inputBus.addEventListener('input', filtrarEventos)
 
@@ -83,7 +91,6 @@ function filtrarEventos() {
   let arrayFiltrado = eventos.filter((evento) => (evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
     || evento.description.toLowerCase().includes(inputBus.value.toLowerCase())) && (categoryArray.length === 0 || categoryArray.includes(evento.category)))
 
-  console.log(arrayFiltrado);
 
   crearTarjetas(arrayFiltrado)
 
@@ -108,7 +115,7 @@ function obtenerCategorias(arrayEventos) {
 function filtrarCategorias(arrayCat) {
   checkboxes = ''
   arrayCat.forEach(categoria => {
-    checkBox.innerHTML += `<li class="nav-item"> 
+    checkBox.innerHTML += `<li class="nav-item">
      <input class="form-check-input input-check" name="checkbox" type="checkbox"  value="${categoria}" id="${categoria}">
      <label class="form-check-label" for="${categoria}">${categoria}</label></li>`
   })
@@ -118,9 +125,10 @@ function filtrarCategorias(arrayCat) {
 
 //SELECCION DE CHECKBOX
 
-button.addEventListener('click', (eventos) => {
-  eventos.preventDefault()
+// button.addEventListener('click', (eventos) => {
+//   eventos.preventDefault()
 
-  filtrarEventos()
-})
+// filtrarEventos()
+
+// })
 

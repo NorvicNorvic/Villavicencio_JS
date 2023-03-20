@@ -11,7 +11,7 @@ function traerDatos() {
     .then(datosApi => {
       eventos = datosApi.events
 
-          let fechaBase = parseInt((datosApi.currentDate).split("-"))
+          let fechaBase = datosApi.currentDate
           let arrayFiltrado = eventos.filter((evento) => eventoPasado(evento.date,fechaBase))
 
       crearTarjetas(arrayFiltrado)
@@ -57,8 +57,7 @@ function crearTarjetas(arrayData) {
 }
 
 function eventoPasado(event, date) {
-  let dateEvent = parseInt(event.split("-"))
-
+  let dateEvent = event
   if (dateEvent < date) {
     return true
   } else
@@ -151,4 +150,5 @@ button.addEventListener('click', (eventos) => {
 
   filtrarEventos()
 })
+
 

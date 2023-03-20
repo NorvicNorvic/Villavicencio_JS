@@ -76,8 +76,6 @@ function filtrarEventos() {
   let arrayFiltrado = eventos.filter((evento) => (evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
   || evento.description.toLowerCase().includes(inputBus.value.toLowerCase())) && (categoryArray.length === 0 || categoryArray.includes(evento.category)))
 
-  console.log(arrayFiltrado);
-
   crearTarjetas(arrayFiltrado)
 
   if (arrayFiltrado.length === 0) {

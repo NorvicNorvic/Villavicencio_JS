@@ -1,10 +1,9 @@
-
 @font-face {
     font-family: julee;
     src: url(fuentes/Julee-Regular.ttf);
 }
 
- *{
+* {
     margin: 0;
     padding: 0;
     font-family: julee;
@@ -13,10 +12,11 @@
 
 
 
-#contenedorCentral{
-    width:100%; 
-    margin:0 auto 0 auto;
+#contenedorCentral {
+    width: 100%;
+    margin: 0 auto 0 auto;
 }
+
 main {
     height: 100%;
     width: 100%;
@@ -49,7 +49,7 @@ footer {
 
 
 @media (max-width:760px) {
-    
+
     header label {
         display: block;
     }
@@ -85,10 +85,10 @@ footer {
         flex-wrap: wrap;
     }
 
-    /* #imagenes article {
-        width: 70%; */
-        /* min-height: 26em; */
-    /* } */
+    #imagenes article {
+        width: 70%;
+        min-height: 26em;
+    }
 
     #seccion2 {
         display: flex;
@@ -118,8 +118,8 @@ footer {
     background-size: 100%;
 }
 
-.col-lg-4{
- 
+.col-lg-4 {
+
     width: 30%;
     text-align: center;
     margin: auto;
@@ -136,10 +136,11 @@ footer {
 }
 
 /* tabla */
-#tabla{
+#tabla {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 h1 {
     text-align: center;
     margin-top: 1em;
@@ -304,61 +305,63 @@ header label {
 
 }
 
-#banner{
+#banner {
     align-items: center;
     justify-content: center;
     /* position: relative;
     top: 4em; */
     border-bottom: 1px solid black;
     display: flex;
-    background-image: url(./assets/fondo.png) ;
+    background-image: url(./assets/fondo.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     /* filter:brightness(1.1);para quitarle el fondo blanco a la imagen
     mix-blend-mode: multiply; */
     margin-top: 4em;
-    height:4em;
+    height: 4em;
 }
 
-#banner .contenedor{
+#banner .contenedor {
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
-#banner h1{
-    font-size:30px;
+#banner h1 {
+    font-size: 30px;
     text-transform: uppercase;
-    filter:brightness(1.1);/*para quitarle el fondo blanco a la imagen*/
+    filter: brightness(1.1);
+    /*para quitarle el fondo blanco a la imagen*/
     mix-blend-mode: multiply;
     margin-top: 6px;
-    white-space: nowrap;/*para que el titulo se escriba en una misma linea*/
+    white-space: nowrap;
+    /*para que el titulo se escriba en una misma linea*/
 }
 
-#banner a{
+#banner a {
     display: block;
     margin-top: 10px;
 }
 
-.banner{
-    filter:brightness(1.1);
+.banner {
+    filter: brightness(1.1);
     mix-blend-mode: multiply;
     width: 100%;
 }
 
 .flecha-izq {
     height: 3vh;
-    width: 9vw; 
+    width: 9vw;
     background: 0 0;
     position: absolute;
     top: -6px;
     left: 5px;
 }
 
-.flecha-der{
+.flecha-der {
     height: 3vh;
-    width: 9vw; 
+    width: 9vw;
     background: 0 0;
     position: absolute;
     position: absolute;
@@ -368,40 +371,41 @@ header label {
 
 
 
-@media(min-width:480px){
- 
-    #banner h1{
+@media(min-width:480px) {
+
+    #banner h1 {
         font-size: 60px;
     }
 
-    #banner{
+    #banner {
         height: 6em;
     }
 }
-#lupa{
+
+#lupa {
     width: 30px;
     height: 30px;
 }
 
-.nav-item{
-  margin:20px;
-  float:left;
+.nav-item {
+    margin: 20px;
+    float: left;
 }
 
-.navbar-nav{
-  margin-left: 10px;
+.navbar-nav {
+    margin-left: 10px;
 }
 
-.d-flex{
-  margin-right: 20px;
+.d-flex {
+    margin-right: 20px;
 }
 
 .btn-outline-success {
-  background: linear-gradient(rgb(206, 179, 174), greenyellow);
+    background: linear-gradient(rgb(206, 179, 174), greenyellow);
 
 }
- 
-#imagenes  {
+
+#imagenes {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -412,13 +416,14 @@ header label {
 #imagenes article {
     margin: 3px;
     padding: 5px;
-} 
+}
 
-.card-img, .card-img-top{
+.card-img,
+.card-img-top {
     height: 12em;
 }
 
-.cards{
+.cards {
     height: 24em;
     padding: 5px;
     border: 1px solid black;
@@ -449,19 +454,19 @@ button {
 
 
 footer .contenedor {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	height: 100%;
-} 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+}
 
 footer h2 {
-	float: right;
-	margin-top: 37px;
-	margin-right: 1em;
-	width: 4em;
-	text-align: right;
-	color: white;
+    float: right;
+    margin-top: 37px;
+    margin-right: 1em;
+    width: 4em;
+    text-align: right;
+    color: white;
 }
 
 
@@ -473,34 +478,34 @@ footer h2 {
     border-radius: 50%;
     transition: all .8s;
     cursor: pointer;
-	/* filter:brightness(1.1);
+    /* filter:brightness(1.1);
     mix-blend-mode: multiply; */
-	display: inline-block;
+    display: inline-block;
 }
 
-.icon img{
+.icon img {
     border-radius: 50%;
 
 }
 
 .icon:hover {
     background-color: #e60073;
-    box-shadow:  0 0 20px #e60073 ;
+    box-shadow: 0 0 20px #e60073;
 }
 
 .icon:hover:nth-child(2) {
     background-color: #1877f2;
-    box-shadow:  0 0 20px #1877f2;
+    box-shadow: 0 0 20px #1877f2;
 }
 
 .icon:hover:nth-child(3) {
     background-color: #25d366;
-    box-shadow: 0 0 20px #25d366 ;
+    box-shadow: 0 0 20px #25d366;
 }
 
 .icon:hover:nth-child(4) {
     background-color: #1da1f2;
-    box-shadow:  0 0 20px #1da1f2 ;
+    box-shadow: 0 0 20px #1da1f2;
 }
 
 .icon i {
@@ -508,7 +513,7 @@ footer h2 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-size: 1.7rem;
 }
 
@@ -522,18 +527,18 @@ svg circle {
 }
 
 #aDetails {
-   border:2px solid black;
-   text-decoration: none;
-   color: black;
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
 }
 
-#form{
-position: relative;
-left: 85px;
+#form {
+    position: relative;
+    left: 85px;
 }
 
 #imagenesDetails article {
-    border: 1px solid black; 
+    border: 1px solid black;
     display: flex;
     width: 100%;
     height: 40vh;
@@ -543,23 +548,23 @@ left: 85px;
 #imagenesDetails {
     /* border-right: 2px solid black; */
     /* padding: 20px; */
-    width: 90%;
-    height: 20%;
+    margin: 3em;
+    height: 20em;
 }
 
 
 .imaDet {
     height: 100%;
-    width: 45vw; 
+    width: 45vw;
     padding: 5px
 }
 
 #imagenesDetails p {
     margin-top: 1em;
-    font-size:20px;
+    font-size: 20px;
 }
 
-.divCont{
+.divCont {
     width: 50%;
     height: 100%;
     margin-left: 0px;
@@ -578,46 +583,46 @@ left: 85px;
 
 
 @media (max-width:760px) {
-    #imagenesDetails  {
+    #imagenesDetails {
         display: flex;
         justify-content: center;
         width: 100%;
         gap: 5px;
         flex-wrap: wrap;
     }
-    
+
     #imagenesDetails article {
         margin: 3px;
         padding: 5px;
         display: flex;
         flex-wrap: wrap;
-    } 
-    
-    body{
+    }
+
+    body {
         overflow: hidden;
     }
- .imaDet{
-    height: 20vh;
-    width: 100%;
- }
 
- .divCont{
-    width: 100%;
-    height: 50%;
- }
+    .imaDet {
+        height: 20vh;
+        width: 100%;
+    }
 
- .detalles{
-    margin: 0px;
-    width: 100%;
-    padding: 0px;
+    .divCont {
+        width: 100%;
+        height: 50%;
+    }
+
+    .detalles {
+        margin: 0px;
+        width: 100%;
+        padding: 0px;
+    }
+
+    #imagenesDetails p {
+        font-size: 10px;
+    }
+
+    #imagenesDetails h4 {
+        margin-top: 1px;
+    }
 }
-
-#imagenesDetails p {
-    font-size:10px;
-}
-
-#imagenesDetails h4 {
-    margin-top: 1px;
- }
-}
-  
