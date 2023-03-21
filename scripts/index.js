@@ -24,7 +24,6 @@ traerDatos()
 
 function obtenerCategorias(arrayEventos){
   let categoria = arrayEventos.map(categ => categ.category)
-  console.log(categoria);
       categoria = categoria.reduce((ant, curr) => {
         if (ant.findIndex((a) => a.toLowerCase() == curr.toLowerCase()) == -1) {
           ant.push(curr)
@@ -53,7 +52,7 @@ function crearTarjetas(arrayData) {
 </div>
 <div id="form">
   <form method="get" action="./details.html" >
-    <a id="aDetails" href="./details.html?id=${evento.id}">
+    <a id="aDetails" href="./details.html?id=${evento._id}">
       Read more...
     </a>
   </form>
@@ -71,7 +70,6 @@ inputBus.addEventListener('input', filtrarEventos)
 function filtrarEventos() {
   let arrayInput = document.querySelectorAll('input:checked')
   let categoryArray = Array.from(arrayInput).map(categ => categ.value)
-  console.log(categoryArray);
 
   let arrayFiltrado = eventos.filter((evento) => (evento.name.toLowerCase().includes(inputBus.value.toLowerCase())
   || evento.description.toLowerCase().includes(inputBus.value.toLowerCase())) && (categoryArray.length === 0 || categoryArray.includes(evento.category)))

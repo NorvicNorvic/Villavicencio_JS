@@ -56,7 +56,7 @@ function crearTarjetas(arrayData) {
 </div>
 <div id="form">
   <form method="get" action="./details.html" >
-    <a id="aDetails" href="./details.html?id=${evento.id}">
+    <a id="aDetails" href="./details.html?id=${evento._id}">
       Read more...
     </a>
   </form>

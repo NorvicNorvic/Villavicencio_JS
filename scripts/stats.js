@@ -1,26 +1,34 @@
-
-
-const tabla = document.getElementById('tabla')
-let urlApi = "https://mindhub-xj03.onrender.com/api/amazing"
-
-
-
-let eventos = []
-
 function traerDatos() {
   // fetch('./data.json')
   fetch("https://mindhub-xj03.onrender.com/api/amazing")
+
     .then(response => response.json())
-    .then(datosApi => { eventos = datosApi.events
+    .then(datosApi => {
+      eventos = datosApi.events
+      
+      //  let percentage = assistance(arrayPast)
+      // let maxCapacity = capacity(arrayPast)
+      printTable(results(assistance(arrayPast), assistance(arrayPast).reverse(), capacity(arrayPast)), "datosSuperior")
+
+      // Tabla de calculo
+      printTable(dataTable(eventosFuturos), "upcoming")
+      printTable(dataTable(eventosPasados), "past")
+        
+          })
+      .catch(error => console.log(error.message))
+  }
   
+  traerDatos()
+    
+  function assistance(arrPast) {
+    const arrayPercentage = arrPast.map(event => {
+      return {
+        attendance: (event.assistance / event.capacity) * 100,
+        nameEvent: event.name
+      }
     })
-    .catch(error => console.log(error.message))
-}
+    arrayPercentage.sort((a, b) => b.attendance - a.attendance)
+    console.log(arrayPercentage)
+    return arrayPercentage
 
-traerDatos()
-
-let body = ""
-for (var i = 0; i < data.length; i++) {      
-   body+=`<tr><td>${data[i].id}</td><td>${data[i].name}</td><td>${data[i].email}</td></tr>`
-}
-tabla= document.getElementById('data').innerHTML 
+  }

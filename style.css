@@ -136,10 +136,10 @@ footer {
 }
 
 /* tabla */
-#tabla {
+/* #tabla {
     margin-top: 20px;
     margin-bottom: 20px;
-}
+} */
 
 h1 {
     text-align: center;
@@ -161,8 +161,8 @@ h4 {
 }
 
 table td {
-    width: 25%;
-    height: 2em;
+    /* width: 25%;
+    height: 2em; */
     padding: 10px;
     border: 1px solid #000;
     background: rgb(236, 204, 215);
@@ -176,7 +176,7 @@ table td {
 }
 
 table th {
-    width: 25%;
+    width: 33%;
     height: 2em;
     border: 1px solid #000;
 }
@@ -560,7 +560,6 @@ svg circle {
 }
 
 #imagenesDetails p {
-    margin-top: 1em;
     font-size: 20px;
 }
 
@@ -581,6 +580,11 @@ svg circle {
     text-align: justify;
 }
 
+#redir {
+    float: right;
+    margin-left: 15em;
+    margin-bottom: 10em;
+}
 
 @media (max-width:760px) {
     #imagenesDetails {

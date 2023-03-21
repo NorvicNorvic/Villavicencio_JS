@@ -45,7 +45,7 @@ function crearTarjetas(arrayData) {
 </div>
 <div id="form">
   <form method="get" action="./details.html" >
-    <a id="aDetails" href="./details.html?id=${evento.id}">
+    <a id="aDetails" href="./details.html?id=${evento._id}">
       Read more...
     </a>
   </form>
@@ -84,7 +84,7 @@ function crearTarjetas(arrayData) {
 </div>
 <div id="form">
   <form method="get" action="./details.html" >
-    <a id="aDetails" href="./details.html?id=${evento.id}">
+    <a id="aDetails" href="./details.html?id=${evento._id}">
       Read more...
     </a>
   </form>
@@ -134,7 +134,9 @@ function obtenerCategorias(arrayEventos) {
 
 function filtrarCategorias(arrayCat) {
   checkboxes = ''
+  
   arrayCat.forEach(categoria => {
+
     checkBox.innerHTML += `<li class="nav-item"> 
      <input class="form-check-input input-check" name="checkbox" type="checkbox"  value="${categoria}" id="${categoria}">
      <label class="form-check-label" for="${categoria}">${categoria}</label></li>`

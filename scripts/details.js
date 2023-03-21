@@ -1,7 +1,6 @@
 let params = new URLSearchParams(document.location.search)
 
-let id = params.get("_id")
-
+let id = params.get("id")
 
 
   fetch("https://mindhub-xj03.onrender.com/api/amazing")
