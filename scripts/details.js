@@ -24,9 +24,11 @@ let id = params.get("id")
                 <div class="precio">
                 <p>Precio $${detalle[0].price}</p>
                 </div>
-                <a id="aDetails" href="./home.html">
+                <div id="return">
+                <a id="aDetails" href="./index.html">
                 Return to homepage
             </a>
+            </div>
                 </div>
                 
                 </article>`
