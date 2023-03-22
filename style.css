@@ -433,7 +433,7 @@ header label {
 
 .parrafo {
     text-align: justify;
-    height: 30%;
+    width: 30em;
 }
 
 .bootonCard {
@@ -563,14 +563,13 @@ svg circle {
 }
 
 #imagenesDetails h4 {
-    margin-top: 1em;
     text-align: center;
 }
 
 .detalles {
-    /* margin-left: 20px;
-    margin-right: 20px; */
+    width: 35em;
     text-align: justify;
+    margin: 0;
 }
 form{
     border: 2px solid black;

@@ -18,25 +18,18 @@ let id = params.get("id")
                 <div class="detalles">
                 <h4>${detalle[0].name}</h4>
                 <div class="parrafo">
-                    <p>${detalle[0].description}</p>
-                </div>
-                <div class="parrafo">
-                    <p>${detalle[0].capacity}</p>
-                </div>
-                <div class="parrafo">
-                    <p>${detalle[0].assistance}</p>
-                </div>
+                    <p>Category: ${detalle[0].category}</p>
+                    <p>Date: ${detalle[0].date}</p>
+                    <p>Description: ${detalle[0].description}</p>
+                    <p>Place: ${detalle[0].place}</p>
+                    <p>Capacity: ${detalle[0].capacity}</p>
+                    <p>Assitance: ${detalle[0].assistance}</p>
+               
                 <div class="bootonCard">
-                <div class="precio">
-                <p>Precio $${detalle[0].price}</p>
+                <div class="precio"><p>Precio $${detalle[0].price}</p></div>
+                <div id="return"><a id="aDetails" href="./index.html">Return to homepage</a></div>
                 </div>
-                <div id="return">
-                <a id="aDetails" href="./index.html">
-                Return to homepage
-            </a>
-            </div>
                 </div>
-                
                 </article>`
 
             contenedorTarjetas.innerHTML = cards
