@@ -14,10 +14,15 @@ let eventos = []
       let fechaBase = datosApi.currentDate;
       let arrayFiltrado = eventos.filter((evento) =>
         eventoPasado(evento.date, fechaBase)
-      );
+      )
       crearTarjetas(arrayFiltrado);
 
-     
+      function eventoPasado(event, date) {
+        let dateEvent = event;
+        if (dateEvent < date) {
+          return true;
+        } else return false;
+        }
 
    // crearTarjetas(eventos)
    let categoria = obtenerCategorias(arrayFiltrado);
@@ -114,9 +119,4 @@ for (const evento of arrayData) {
 contenedorTarjetas.innerHTML = cards;
 }
 
-function eventoPasado(event, date) {
-let dateEvent = event;
-if (dateEvent < date) {
-  return true;
-} else return false;
-}
+

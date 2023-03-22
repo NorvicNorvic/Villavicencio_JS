@@ -8,9 +8,7 @@
       arrEvent = datosApi.events
  
     printTable(results(assistance(arrEvent), assistance(arrEvent).reverse(), capacity(arrEvent)), "datosSuperior")
-
-    // Tabla de calculo
-    printTableUpc(dataTable(futures), "upcoming")
+    printTableUpc(dataTable(arrEvent), "upcoming")
     printTablePast(dataTable(past), "past")
   })
   // .catch(error => console.log(error.message))
@@ -78,8 +76,9 @@ function printTable(results, tabla) {
 
 
 function dataTable(arr) {
-  let categories = arrEvent.from(new Set(arr.map(a => a.category)));
-  let eventCategories = categories.map(cat => arr.filter(event => event.category == cat))
+  let categories = Array.from(new Set(arr.map(a => a.category)))
+
+  let eventCategories = categories.map(cat =>arr.filter(event => event.category == cat))
   let result = eventCategories.map(eventCat => {
     let calculate = eventCat.reduce((acc, event) => {
       console.log(event)
@@ -98,8 +97,8 @@ function dataTable(arr) {
   return result;
 }
 
-function printTableUpc(arr, tabla2) {
-  const upcomingTable = document.getElementById(tabla2)
+function printTableUpc(arr, contenedor) {
+  const upcomingTable = document.getElementById(contenedor)
   let html = arr.map(events => {
     return `
       <tr>
@@ -113,8 +112,8 @@ function printTableUpc(arr, tabla2) {
 }
 
 
-function printTablePast(arr, tabla) {
-  const pastTable = document.getElementById(tabla)
+function printTablePast(arr, contenedor) {
+  const pastTable = document.getElementById(contenedor)
   let html = arr.map(events => {
     return `
       <tr>

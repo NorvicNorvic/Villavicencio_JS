@@ -20,6 +20,12 @@ let id = params.get("id")
                 <div class="parrafo">
                     <p>${detalle[0].description}</p>
                 </div>
+                <div class="parrafo">
+                    <p>${detalle[0].capacity}</p>
+                </div>
+                <div class="parrafo">
+                    <p>${detalle[0].assistance}</p>
+                </div>
                 <div class="bootonCard">
                 <div class="precio">
                 <p>Precio $${detalle[0].price}</p>
