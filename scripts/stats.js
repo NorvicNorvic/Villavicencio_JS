@@ -6,23 +6,39 @@
   .then(response => response.json())
     .then(datosApi => {
       arrEvent = datosApi.events
- 
+      let fechaBase = datosApi.currentDate;
+      let eventFuturos = arrEvent.filter((evento) =>
+      eventoFuturo(evento.date, fechaBase))
+
+      let eventPasado = arrEvent.filter((evento) =>
+      eventoPasado(evento.date, fechaBase))
+
     printTable(results(assistance(arrEvent), assistance(arrEvent).reverse(), capacity(arrEvent)), "datosSuperior")
-    printTableUpc(dataTable(arrEvent), "upcoming")
-    printTablePast(dataTable(past), "past")
+    printTableUpc(dataTable(eventFuturos), "upcoming")
+    printTablePast(dataTable(eventPasado), "past")
   })
-  // .catch(error => console.log(error.message))
+
+  function eventoFuturo(event, date) {
+    let dateEvent = event;
+    if (dateEvent >= date) {
+      return true;
+    } else return false;
+  }
+
+  function eventoPasado(event, date) {
+    let dateEvent = event;
+    if (dateEvent < date) {
+      return true;
+    } else return false;
+    }
+
+// function futures(data, currentDate) {
+//   return data.filter(evento => evento.date > currentDate)
 // }
 
-// traerDatos()
-
-function futures(data, currentDate) {
-  return data.filter(evento => evento.date > currentDate)
-}
-
-function past(data, currentDate) {
-  return data.filter(event => event.date < currentDate)
-}
+// function past(data, currentDate) {
+//   return data.filter(event => event.date < currentDate)
+// }
 
 
 //evento con mayor asistencia.

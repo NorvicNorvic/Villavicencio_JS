@@ -17,6 +17,7 @@ body {
     margin: 0 auto;
     font-family: julee;
     width: 100vw;
+    height: auto;
 }
 
 main {
@@ -140,9 +141,7 @@ footer {
 
 /* tabla */
 
-#tabla{
-    height: 50em;
-}
+
 
 h1 {
     text-align: center;
@@ -433,7 +432,7 @@ header label {
 
 .parrafo {
     text-align: justify;
-    width: 30em;
+    width: 90%;
 }
 
 .bootonCard {
