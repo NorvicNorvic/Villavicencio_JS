@@ -1,5 +1,4 @@
   
-  let eventos = []
 
   // function traerDatos() {
   // fetch('./data.json')
@@ -11,8 +10,8 @@
     printTable(results(assistance(arrEvent), assistance(arrEvent).reverse(), capacity(arrEvent)), "datosSuperior")
 
     // Tabla de calculo
-    printTable(dataTable(eventosFuturos), "upcoming")
-    printTable(dataTable(eventosPasados), "past")
+    printTableUpc(dataTable(futures), "upcoming")
+    printTablePast(dataTable(past), "past")
   })
   // .catch(error => console.log(error.message))
 // }
@@ -62,11 +61,11 @@ function results(highestPercentage, lowestPercentage, largerCapacity) {
     lowestPercentage: lowestPercentage[0].nameEvent,
     largerCapacity: largerCapacity[0].nameEvent
   }
-  return all
+   return all
 }
 
-function printTable(results, datosSuperior) {
-  const table = document.getElementById(datosSuperior)
+function printTable(results, tabla) {
+  const table = document.getElementById(tabla)
   table.innerHTML += `
   <tr>
       <td>${results.highestPercentage}</td>
@@ -99,8 +98,8 @@ function dataTable(arr) {
   return result;
 }
 
-function printTable(arr, upcoming) {
-  const upcomingTable = document.getElementById(upcoming)
+function printTableUpc(arr, tabla2) {
+  const upcomingTable = document.getElementById(tabla2)
   let html = arr.map(events => {
     return `
       <tr>
@@ -114,8 +113,8 @@ function printTable(arr, upcoming) {
 }
 
 
-function printTable(arr, past) {
-  const upcomingTable = document.getElementById(past)
+function printTablePast(arr, tabla) {
+  const pastTable = document.getElementById(tabla)
   let html = arr.map(events => {
     return `
       <tr>
@@ -125,7 +124,7 @@ function printTable(arr, past) {
           </tr>
       `
   })
-  upcomingTable.innerHTML = html.join("")
+ pastTable.innerHTML = html.join("")
 }
 
 
